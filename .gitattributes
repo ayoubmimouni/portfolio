@@ -1,0 +1,9 @@
+# Normalise les fins de ligne : LF dans le dépôt, conversion automatique au checkout.
+* text=auto eol=lf
+
+# Fichiers binaires — jamais convertis.
+*.png binary
+*.svg text
+*.keras binary
+*.pkl binary
+*.h5 binary

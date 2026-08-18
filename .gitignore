@@ -1,0 +1,28 @@
+# Environnement virtuel — ne jamais versionner (recréé via requirements.txt)
+venv/
+.venv/
+env/
+
+# Artefacts Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Modèles entraînés (volumineux, générés par train_model.py)
+trained_models_LSTM_2000_epochs/
+*.keras
+*.h5
+*.pkl
+
+# Journaux et fichiers temporaires
+*.log
+.DS_Store
+Thumbs.db
+
+# Secrets éventuels (par sécurité — aucun n'est présent aujourd'hui)
+*.env
+.env
+*.pem
+*.key
