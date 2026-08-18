@@ -1,0 +1,116 @@
+# ============================================================================
+#  Optiport — Streamlit theme configuration
+#  This file is the *first layer* of the design system: it maps the design
+#  tokens defined in ui/tokens.py onto Streamlit's native theming engine so
+#  that built-in widgets (buttons, inputs, dataframes, metrics, charts) match
+#  the custom components without any CSS override.
+#  Keep in sync with ui/tokens.py.
+# ============================================================================
+
+[browser]
+gatherUsageStats = false
+
+[client]
+toolbarMode = "minimal"
+showErrorDetails = "full"
+
+[logger]
+level = "warning"
+
+# ---------------------------------------------------------------------------
+#  Core theme — "Midnight" dark financial palette
+# ---------------------------------------------------------------------------
+[theme]
+base = "dark"
+
+# Surfaces
+backgroundColor = "#0B1220"          # app background
+secondaryBackgroundColor = "#1E293B" # cards, inputs, code blocks
+textColor = "#F8FAFC"
+primaryColor = "#3B82F6"
+
+# Borders & separators
+borderColor = "#334155"
+dataframeBorderColor = "#334155"
+dataframeHeaderBackgroundColor = "#16213A"
+showWidgetBorder = true
+showSidebarBorder = true
+
+# Links
+linkColor = "#60A5FA"
+linkUnderline = false
+
+# Radius scale
+baseRadius = "0.75rem"
+buttonRadius = "0.625rem"
+
+# Typography — Inter loaded from Google Fonts with system fallbacks.
+# If the CDN is unreachable the stack degrades to the platform UI font.
+font = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap, Inter, Segoe UI, Roboto, Helvetica Neue, sans-serif"
+headingFont = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap, Inter, Segoe UI, Roboto, sans-serif"
+codeFont = "JetBrains Mono:https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap, JetBrains Mono, SFMono-Regular, Consolas, monospace"
+
+baseFontSize = 15
+baseFontWeight = 400
+headingFontSizes = ["1.875rem", "1.5rem", "1.125rem", "1rem", "0.875rem", "0.8125rem"]
+headingFontWeights = [700, 650, 600, 600, 600, 600]
+
+metricValueFontSize = "1.75rem"
+metricValueFontWeight = 700
+
+# Semantic colors — used by st.metric deltas, st.badge, alerts and
+# markdown color syntax so that every signal reads the same everywhere.
+greenColor = "#22C55E"
+redColor = "#EF4444"
+orangeColor = "#F59E0B"
+yellowColor = "#EAB308"
+blueColor = "#3B82F6"
+violetColor = "#8B5CF6"
+grayColor = "#94A3B8"
+
+greenTextColor = "#4ADE80"
+redTextColor = "#F87171"
+orangeTextColor = "#FBBF24"
+blueTextColor = "#60A5FA"
+violetTextColor = "#A78BFA"
+grayTextColor = "#94A3B8"
+
+greenBackgroundColor = "#122B20"
+redBackgroundColor = "#2D1519"
+orangeBackgroundColor = "#2D2211"
+yellowBackgroundColor = "#2B2510"
+blueBackgroundColor = "#12203D"
+violetBackgroundColor = "#1F1738"
+grayBackgroundColor = "#1B2436"
+
+codeTextColor = "#7DD3FC"
+codeBackgroundColor = "#0E1A2E"
+
+# Chart palettes — every chart in the app pulls from these so series colors
+# stay identical between Plotly, Altair and Streamlit native charts.
+chartCategoricalColors = [
+  "#3B82F6", "#22C55E", "#F59E0B", "#8B5CF6", "#06B6D4", "#EC4899",
+  "#14B8A6", "#F97316", "#6366F1", "#84CC16", "#A855F7", "#0EA5E9",
+]
+chartSequentialColors = [
+  "#0B1F3A", "#12325C", "#1A467F", "#215BA2", "#2970C5", "#3B82F6",
+  "#5B9BF8", "#8CBAFB", "#BDD7FD", "#E3EDFE",
+]
+chartDivergingColors = [
+  "#7F1D1D", "#B91C1C", "#EF4444", "#F87171", "#FCA5A5", "#E2E8F0",
+  "#86EFAC", "#4ADE80", "#22C55E", "#15803D", "#14532D",
+]
+
+# ---------------------------------------------------------------------------
+#  Sidebar — slightly deeper surface than the app body so the fixed
+#  navigation rail reads as a distinct layer (glass effect added in CSS).
+# ---------------------------------------------------------------------------
+[theme.sidebar]
+backgroundColor = "#080E1A"
+secondaryBackgroundColor = "#141F35"
+textColor = "#E2E8F0"
+primaryColor = "#3B82F6"
+borderColor = "#1E2A42"
+baseRadius = "0.625rem"
+buttonRadius = "0.5rem"
+showWidgetBorder = true

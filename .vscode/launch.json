@@ -1,0 +1,57 @@
+{
+  // Ouvrez le dossier "Optiport" dans VS Code, puis F5.
+  // Streamlit et Uvicorn se lancent comme modules : un simple "Run" sur app.py
+  // ne fonctionnerait pas, car Streamlit doit être démarré par "streamlit run".
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Optiport — Tout (API + Interface)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "streamlit",
+      "args": ["run", "app.py", "--server.port", "8501"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": false,
+      "presentation": { "hidden": true }
+    },
+    {
+      "name": "Interface (Streamlit)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "streamlit",
+      "args": ["run", "app.py", "--server.port", "8501"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "API (FastAPI / Uvicorn)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["api:app", "--port", "8000"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "API avec rechargement auto (sans points d'arrêt)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["api:app", "--port", "8000", "--reload"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": false
+    }
+  ],
+  "compounds": [
+    {
+      // La configuration à utiliser au quotidien : démarre les deux processus.
+      "name": "▶ Optiport (API + Interface)",
+      "configurations": ["API (FastAPI / Uvicorn)", "Interface (Streamlit)"],
+      "stopAll": true
+    }
+  ]
+}
