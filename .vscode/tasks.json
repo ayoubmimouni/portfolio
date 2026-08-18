@@ -1,0 +1,33 @@
+{
+  // Alternative sans débogueur : Terminal → Exécuter la tâche…
+  // "Optiport : démarrer tout" ouvre les deux serveurs en parallèle.
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "API (Uvicorn)",
+      "type": "shell",
+      "command": "${workspaceFolder}/venv/Scripts/python.exe",
+      "args": ["-m", "uvicorn", "api:app", "--port", "8000", "--reload"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "isBackground": true,
+      "presentation": { "group": "optiport", "panel": "dedicated" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Interface (Streamlit)",
+      "type": "shell",
+      "command": "${workspaceFolder}/venv/Scripts/python.exe",
+      "args": ["-m", "streamlit", "run", "app.py", "--server.port", "8501"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "isBackground": true,
+      "presentation": { "group": "optiport", "panel": "dedicated" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Optiport : démarrer tout",
+      "dependsOn": ["API (Uvicorn)", "Interface (Streamlit)"],
+      "dependsOrder": "parallel",
+      "problemMatcher": []
+    }
+  ]
+}
